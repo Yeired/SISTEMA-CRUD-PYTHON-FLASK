@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Estilos de encabezado */
+
+  header {
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .slogan {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  /* Estilos de contenido principal */
+
+  .hero-section {
+    background-image: url("../img/uni.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .hero-section p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .btn-login {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-login:hover {
+    background-color: #555;
+  }
+
+  /* Estilos de pie de página */
+
+  footer {
+    background-color: #333;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+  }

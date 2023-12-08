@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="../static/css/form.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+</head>
+<body>
+  <div class="container">
+    <form id="login-form" action="" method="post">
+      <h2>Login</h2> 
+      <label for="username">Nombre de usuario:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input onclick="press2()" type="submit" value="Iniciar sesión">
+      <div class="register-link">
+        <p>No tienes una cuenta? <a onclick="press2()" href="#" id="register-link">Regístrate</a></p>
+      </div>
+    </form>
+  </div>
+  <script src="../static/js/script1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {% if show_alert %}
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Contraseña incorrecta',
+      text: 'Por favor, verifica tu nombre de usuario y contraseña.'
+    });
+  </script>
+  {% endif %}
+ 
+</body>
+</html>

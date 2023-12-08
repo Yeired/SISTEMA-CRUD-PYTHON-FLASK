@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Persona</title>
+    <link rel="stylesheet" href="../static/css/form.css">
+</head>
+<body>
+<div class="container">
+    <form id="login-form" method="POST">
+        <h2>Editar Datos</h2>
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ persona.nombre }}" required><br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" value="{{ persona.apellido }}" required><br>
+        <label>Correo:</label>
+        <input type="email" name="correo" value="{{ persona.correo }}" required><br>
+        <label>Número:</label>
+        <input type="tel" name="numero" value="{{ persona.numero }}" required><br>
+        <label>Sexo:</label>
+        <input type="text" name="sexo" value="{{ persona.sexo }}" required><br>
+        <input type="submit" value="Guardar Cambios">
+    </form>
+    <p>Volver al <a id="register-link" href="{{ url_for('ver') }}">Menú Principal</a></p>
+    </div>
+</div>
+</body>
+</html>

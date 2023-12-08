@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style> 
+    /* Estilos para la página principal */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    table td, table th {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #cccccc;
+    }
+    table th {
+      background-color: #6a1b9a;
+      color: #ffffff;
+    }
+    .logout-link {
+      text-align: right;
+      margin-top: 20px;
+    }
+    .logout-link a {
+      color: #6a1b9a;
+      text-decoration: none;
+    }
+    .file-upload-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .file-upload-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
+    .btn-upload {
+      color: #ffffff;
+      background-color: #6a1b9a;
+      border-color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Bienvenido:</h2>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Ver datos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{{ url_for('agregar') }}">Agregar Usuario</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="{{ url_for('agregar') }}">Agregar Usuario</a>-->
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Eliminar Usuario</a>-->
+      </li>
+      <li class="nav-item ml-auto">
+        <a class="nav-link"  onclick="cerrar()" href="#">Cerrar Sesión</a>
+      </li>
+    </ul>
+    <table>
+      <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Número</th>
+          <th>Sexo</th>
+          <th>Acciones</th>
+      </tr>
+      {% for persona in personas %}
+      <tr>
+          <td>{{ persona.nombre }}</td>
+          <td>{{ persona.apellido }}</td>
+          <td>{{ persona.correo }}</td>
+          <td>{{ persona.numero }}</td>
+          <td>{{ persona.sexo }}</td>
+          <td>
+              <a href="{{ url_for('editar', id=persona.id) }}">Editar</a>
+              <a href="#" class="eliminar-link" data-id="{{ persona.id }}">Eliminar</a>
+          </td>
+      </tr>
+      {% endfor %}
+  </table>
+    <div class="file-upload-wrapper">
+      <label for="file-upload" class="btn btn-upload">Seleccionar archivo</label>
+      <input id="file-upload" type="file" style="display:none">
+    </div>
+    <button class="btn btn-primary">Subir</button>
+  </div>
+  <script src="../static/js/script1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {% if show_alert2 %}
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Bienvenido',
+      text: '¡Bienvenido! Usuario.'
+    });
+  </script>
+    <script>
+        const eliminarLinks = document.querySelectorAll('.eliminar-link');
+        eliminarLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const personaId = link.getAttribute('data-id');
+                Swal.fire({
+                    title: 'Confirmar Eliminación',
+                    text: '¿Estás seguro de que deseas eliminar esta persona?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = `/eliminar/${personaId}/confirmar`;
+                    }
+                });
+            });
+        });
+    </script>
+  {% endif %}
+</body>
+</html>

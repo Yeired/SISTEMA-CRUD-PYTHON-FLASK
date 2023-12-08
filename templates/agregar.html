@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Persona</title>
+    <link rel="stylesheet" href="../static/css/form.css">
+</head>
+<body>
+<div class="container">
+    <form id="login-form" method="POST">
+        <h2>Agregar Persona</h1>
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required><br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" required><br>
+        <label>Correo:</label>
+        <input type="email" name="correo" required><br>
+        <label>Número:</label>
+        <input type="tel" name="numero" required><br>
+        <label>Sexo:</label>
+        <input type="text" name="sexo" required><br>
+
+        <input type="submit" value="Agregar">
+    </form>
+    <div class="register-link">
+    <p>Volver al <a id="register-link" href="{{ url_for('ver') }}">Menú Principal</a></p>
+    </div>
+</div>
+</body>
+</html>

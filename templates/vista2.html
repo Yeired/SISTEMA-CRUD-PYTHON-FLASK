@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="../static/css/form.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro</h2>
+        <form action="" method="post">
+          <label for="username">Nombre:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" required>
+    
+          <input type="submit" value="Registrarse">
+    
+          <div class="login-link">
+            <p>¿Ya tienes una cuenta? <a onclick="press1()" href="#">Iniciar sesión</a></p>
+          </div>
+        </form>
+      </div>
+      <script src="../static/js/script1.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {% if show_alert %}
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Usuario ya registrado',
+      text: 'Usuario ya esta registrado, favor de verificar el usuario'
+    });
+  </script>
+  {% endif %}
+  {% if show_alert2 %}
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario registrado',
+      text: '¡Bienvenido! Tu usuario ha sido registrado correctamente.'
+    });
+  </script>
+  {% endif %}
+</body>
+</html>
+
+
+

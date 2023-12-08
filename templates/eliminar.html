@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Persona</title>
+    <link rel="stylesheet" href="../static/css/form.css">
+</head>
+<body>
+<div class="container">
+    <form id="login-form" method="POST">
+        <h2>Eliminar Persona</h2>
+        <label>¿Estás seguro de que deseas eliminar a {{ persona.nombre }} {{ persona.apellido }}?</label>
+        <input type="submit" value="Eliminar">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ persona.nombre }}" required><br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" value="{{ persona.apellido }}" required><br>
+    </form>
+    <p><a id="register-link" href="{{ url_for('ver') }}">Cancelar</a></p>
+    </div>
+</div>
+</body>
+</html>
